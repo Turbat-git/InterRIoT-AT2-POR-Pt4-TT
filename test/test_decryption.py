@@ -12,6 +12,10 @@ class TestAdapter:
         return self.encoded_data
 
 
+class InvalidToken(Exception):
+    pass
+
+
 class TestDecryption(unittest.TestCase):
     def setUp(self) -> None:
         self.encoded_data = \
