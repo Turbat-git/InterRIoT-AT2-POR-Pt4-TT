@@ -13,17 +13,15 @@ class FileAdapter:
 
 
 if __name__ == '__main__':
-    plaintext_input = 'Trial from FileAdapter!'
+    file_input = FileAdapter('../data/frame.png')
+    decrypted_file = '../data/decrypted.png'
     plaintext_key = 'abacadabra'
-
-    file = FileAdapter('data/frame.png')
 
     encryption_key = Encryptor(plaintext_key)
     decryption_key = Decryptor(plaintext_key)
 
-    encrypted_data = encryption_key.encrypt(plaintext_input)
+    encrypted_data = encryption_key.encrypt(file_input)
     decrypted_data = decryption_key.decrypt(encrypted_data)
 
-    print(encrypted_data)
-    print(decrypted_data)
-    
+    with open(decrypted_file, "wb") as f:
+        f.write(decrypted_data)
